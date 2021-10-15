@@ -44,5 +44,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         make check-code-format
-        #python -m pytest --cov=mygpo/ --cov-branch
+        python -m pytest --cov=mygpo/ --cov-branch
         python -m coveralls --service=github
