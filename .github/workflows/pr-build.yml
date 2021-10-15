@@ -40,6 +40,8 @@ jobs:
         #sudo -u postgres psql -c "CREATE DATABASE test_mygpo OWNER mygpo;"
       
     - name: Check Format and Coverage
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         make check-code-format
         python -m pytest --cov=mygpo/ --cov-branch
