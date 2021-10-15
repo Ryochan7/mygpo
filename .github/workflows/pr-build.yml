@@ -36,8 +36,8 @@ jobs:
         sudo sed -i -e '/local.*peer/s/mygpo/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
         sudo service postgresql restart
         sleep 1
-        sudo -u postgres psql -c "CREATE USER mygpo WITH PASSWORD 'mygpo';"
-        sudo -u postgres psql -c "CREATE DATABASE test_mygpo OWNER mygpo;"
+        sudo -u postgres psql -c "CREATE USER mygpo WITH PASSWORD 'mygpo' CREATEDB;"
+        #sudo -u postgres psql -c "CREATE DATABASE test_mygpo OWNER mygpo;"
       
     - name: Check Format and Coverage
       run: |
